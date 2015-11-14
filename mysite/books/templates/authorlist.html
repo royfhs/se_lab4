@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>AuthorList</title>
+</head>
+<body>
+	<h1>AuthorList</h1>
+	{% for x in authors %}
+		<li>Name:
+			<a href="/authorinformation?Name={{x.Name}}">{{x.Name}}</a>
+			<button type="submit" name="i" value="{{x.id}}">delete</button>
+		</li>
+	{% endfor %}
+	<a href="../">Back</a>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>Table</title>
+</head>
+<body>
+	{% if tips %}
+		<strong>{{tips}}</strong>
+		<h1>Hey, look up</h1>
+		<a href="../" color=red>Back</a>
+	{% endif %}
+	<form action="/search/" method="get">
+		<input type="text" name="q">
+		<input type="submit" value="Search">
+	</form>
+
+	<form action="/delete/" method="get">
+		<h1>BookList</h1>
+		{% for x in books %}
+			<li>Title:
+				<a href="/information?Name={{x.Title}}">{{x.Title}}</a>
+				<button type="submit" name="i" value="{{x.id}}">delete</button>
+			</li>
+		{% endfor %}
+	</form>
+
+	<form action="/add/" method="get">
+		<li>title:<input type="text" name="title1"></li>
+		<li>ISBN:<input type="text" name="ISBN1"></li>
+		<li>AuthorID:<input type="text" name="ID1"></li>
+		<li>publisher:<input type="text" name="publisher1"></li>
+		<!-- <li>PublicshDate:<input type="text" name="publishdate1"></li> -->
+		<input type="submit" value="Add">
+	</form>
+
+	<form action="/addauthor/" method="get">
+		<li>name:<input type="text" name="name1"></li>
+		<li>AuthorID:<input type="text" name="ID1"></li>
+		<li>Age:<input type="text" name="age1"></li>
+		<li>Country:<input type="text" name="country1"></li>
+		<input type="submit" value="Add">
+	</form>
+	<a href="../author">AuthorList</a>
+</body>
+</html>
